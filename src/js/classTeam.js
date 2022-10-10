@@ -19,7 +19,7 @@ export default class Team {
     return Array.from(this.members);
   }
 
-  [Symbol.iterator]() {
+  /* [Symbol.iterator]() {
     const characters = this.toArray();
     return {
       current: 0,
@@ -33,5 +33,12 @@ export default class Team {
         return { done: true };
       },
     };
+  } */
+
+  * [Symbol.iterator]() {
+  /* eslint-disable-next-line */
+    for (const person of this.members) {
+      yield person;
+    }
   }
 }
